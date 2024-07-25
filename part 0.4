@@ -1,0 +1,29 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    #Click button 'Save'
+    
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+    note right of browser: Data: note="New note"
+    activate server
+    server-->>browser: HTTP 302 Found
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    note right of browser: Get the new CSS file
+    activate server
+    server-->>browser: CSS file
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    note right of browser: Get the new JavaScript file
+    activate server
+    server-->>browser: JavaScript file
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    note right of browser: Get the new JSON file
+    activate server
+    server-->>browser: [{ "content": "new note", "date": "XXXX-XX-XX" }, ... ]
+    deactivate server
