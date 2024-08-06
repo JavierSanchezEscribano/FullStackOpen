@@ -18,3 +18,9 @@ sequenceDiagram
     activate server
     server-->>browser: main.js
     deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    note right of browser: Get the new JSON file
+    activate server
+    server-->>browser: [{ "content": "new note", "date": "XXXX-XX-XX" }, ... ]
+    deactivate server
