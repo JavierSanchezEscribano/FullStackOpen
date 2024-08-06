@@ -1,0 +1,57 @@
+sequenceDiagram
+    participant browser
+    participant server
+    
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+    activate server
+    server-->>browser: HTML-code
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    note right of browser: Get the new CSS file
+    activate server
+    server-->>browser: main.css
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+    note right of browser: Get the new JavaScript file
+    activate server
+    server-->>browser: main.js
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    note right of browser: Get the new JSON file
+    activate server
+    server-->>browser: [{ "content": "new note", "date": "XXXX-XX-XX" }, ... ]
+    deactivate server
+
+    #Click button 'Save'
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    note right of browser: Get the new note
+    activate server
+    server-->>browser: [{ "content": "new note", "date": "XXXX-XX-XX" }, ... ]
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+    activate server
+    server-->>browser: HTML-code
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    note right of browser: Get the new CSS file
+    activate server
+    server-->>browser: main.css
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+    note right of browser: Get the new JavaScript file
+    activate server
+    server-->>browser: main.js
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    note right of browser: Get the new JSON file
+    activate server
+    server-->>browser: [{ "content": "new note", "date": "XXXX-XX-XX" }, ... ]
+    deactivate server
